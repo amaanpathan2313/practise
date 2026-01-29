@@ -1,0 +1,71 @@
+.container{
+    background-color: rgb(218, 211, 203);
+    height: 100vw;
+    padding: 3vw;
+}
+
+h1{
+    text-align: center;
+}
+
+.todoForm{
+    /* border: 2px solid white; */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    background-color: rgb(222, 245, 220);
+    padding: 40px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    width: 80vw;
+}
+
+.todoForm input{
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 2px;
+}
+
+.todoForm button{
+   
+    padding: 10px;
+}
+
+.todoBox{
+    /* border: 2px solid black; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 5vh;
+}
+.card{
+    padding: 10px;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+
+.card button{
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btndiv{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
+
+
