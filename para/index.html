@@ -1,0 +1,418 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 30 Para | Noor • 30 Juz' for revision | 30 Sipara</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Traditional Arabic', 'Scheherazade', 'Amiri', 'Roboto', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #0b1a2e 0%, #1b2f44 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* animated orbs background */
+        .orb {
+            position: fixed;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 215, 140, 0.2), rgba(200, 160, 70, 0.05));
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+            animation: float 18s infinite alternate ease-in-out;
+        }
+
+        .orb1 { top: -80px; left: -80px; background: radial-gradient(circle, rgba(160, 200, 255, 0.3), rgba(60, 120, 200, 0.1)); }
+        .orb2 { bottom: -60px; right: -60px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(255, 200, 100, 0.25), rgba(180, 130, 30, 0.08)); animation-delay: -5s; }
+        .orb3 { top: 40%; left: 70%; width: 200px; height: 200px; background: radial-gradient(circle, #4b6a8b30, #1e3a5f10); animation-duration: 24s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            100% { transform: translate(40px, 40px) scale(1.2); opacity: 0.7; }
+        }
+
+        .glass-panel {
+            position: relative;
+            z-index: 10;
+            max-width: 1250px;
+            width: 100%;
+            background: rgba(10, 25, 40, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 56px 56px 48px 48px;
+            padding: 2.5rem 2rem 2rem 2rem;
+            box-shadow: 0 40px 60px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(255, 215, 160, 0.2) inset, 0 0 30px rgba(255, 235, 170, 0.2);
+            border: 1px solid rgba(255, 200, 120, 0.25);
+        }
+
+        /* header with quranic lamp */
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .header-title h1 , h3{
+            font-size: 1.2rem;
+            font-weight: 500;
+            background: linear-gradient(135deg, #f9e0a0, #e4c27c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 15px #ffd27f40;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .header-title i {
+            font-size: 3rem;
+            color: #e9c884;
+            filter: drop-shadow(0 4px 10px #f0b164);
+            animation: soft-glow 3s infinite alternate;
+        }
+
+        @keyframes soft-glow {
+            0% { filter: drop-shadow(0 4px 8px #b8864b); }
+            100% { filter: drop-shadow(0 8px 20px #f3b35e); }
+        }
+
+        .subhead {
+            text-align: center;
+            font-size: 1.4rem;
+            color: #e0cfb0;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(4px);
+            border: 1px solid #ffd48a30;
+            box-shadow: 0 8px 18px -6px #00000050;
+            transition: 0.3s;
+        }
+
+        .subhead i {
+            margin: 0 12px;
+            color: #f3cd8b;
+        }
+
+        .subhead:hover {
+            border-color: #ffd79c60;
+            background: rgba(20, 35, 50, 0.5);
+            transform: scale(1.01);
+        }
+
+        /* grid of links – each juz like a glowing pearl */
+        .juz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .juz-card {
+            background: rgba(12, 25, 40, 0.55);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 48px 20px 48px 20px;
+            padding: 1rem 0.2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 200, 130, 0.35);
+            box-shadow: 0 20px 25px -12px #00000080, 0 0 0 1px #ffcf8a30 inset;
+            transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .juz-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 235, 160, 0.2), transparent);
+            transition: left 0.7s;
+            z-index: -1;
+        }
+
+        .juz-card:hover::before {
+            left: 100%;
+        }
+
+        .juz-card:hover {
+            transform: translateY(-7px) scale(1.02);
+            border-color: #ffc97a;
+            box-shadow: 0 30px 40px -12px #03070e, 0 0 0 2px #ffdb9e inset;
+            background: rgba(20, 40, 60, 0.75);
+        }
+
+        .juz-icon {
+            font-size: 2.6rem;
+            color: #e9cf97;
+            text-shadow: 0 2px 15px #c79540;
+            margin-bottom: 6px;
+            transition: 0.2s;
+        }
+        .love{
+                /* font-size: 2.6rem; */
+            color: #e9cf97;
+            text-shadow: 0 2px 15px #c79540;
+            margin-bottom: 6px;
+            transition: 0.2s;
+        }
+
+        .juz-card:hover .juz-icon {
+            color: #fadb9f;
+            transform: rotate(2deg) scale(1.05);
+        }
+
+        .juz-label {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f2e0be;
+            letter-spacing: 1px;
+            background: #00000020;
+            width: fit-content;
+            margin: 5px auto;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            border: 1px solid #fec96040;
+        }
+
+        .juz-card a {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: inherit;
+            width: 100%;
+            height: 100%;
+            padding: 10px 4px;
+            font-weight: 500;
+        }
+
+        .juz-card .link-hint {
+            font-size: 0.8rem;
+            color: #e6c27a;
+            opacity: 0.8;
+            background: #0d2133;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 8px;
+            transition: 0.3s;
+            border: 1px solid #735e3c;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .juz-card:hover .link-hint {
+            background: #1c3147;
+            border-color: #e4b45a;
+            color: #f9d48b;
+        }
+
+        /* scroll animation on appear */
+        .juz-card {
+            animation: cardRise 0.7s ease backwards;
+            animation-delay: calc(0.02s * var(--i, 1));
+        }
+
+        @keyframes cardRise {
+            0% { opacity: 0; transform: translateY(40px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* footer sharing banner */
+        .share-save {
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            padding: 1.2rem 1.8rem;
+            margin-top: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ffca7a60;
+            box-shadow: 0 20px 30px -12px black;
+        }
+
+        .save-text {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 1.3rem;
+            color: #f7dcaa;
+        }
+
+        .save-text i {
+            font-size: 2.4rem;
+            color: #fbc67b;
+            filter: drop-shadow(0 0 8px gold);
+        }
+
+        .share-icons a {
+            color: #eacf9b;
+            font-size: 2rem;
+            margin: 0 8px;
+            transition: 0.2s;
+            display: inline-block;
+        }
+
+        .share-icons a:hover {
+            color: #fde1ae;
+            transform: scale(1.2) rotate(3deg);
+            text-shadow: 0 0 20px #fff1b5;
+        }
+
+        .dua {
+            font-size: 1.2rem;
+            color: #d7c098;
+            font-style: italic;
+            margin-top: 1rem;
+            text-align: center;
+            background: #091a28b0;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            border: 1px dashed #ddb76b60;
+        }
+
+        /* simple responsive touch */
+        @media (max-width: 600px) {
+            .glass-panel { padding: 1.5rem 1rem; }
+            .header-title h1 { font-size: 2rem; }
+            .juz-grid { grid-template-columns: repeat(2, 1fr); }
+            .subhead { font-size: 1rem; }
+        }
+
+        /* open links in new tab hint */
+        .external-hint {
+            color: #cbb07c;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- animated background orbs -->
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <div class="glass-panel">
+        <div class="header-title">
+            <i class="fas fa-moon"></i>
+            <h3>القرآن • 30 SIPARE </h3>
+            <i class="fas fa-star"></i>
+        </div>
+        <div class="subhead">
+            <i class="fas fa-headphones-alt"></i> just touch & listen · no download <i class="fas fa-mouse-pointer"></i>
+        </div>
+
+        <!-- Grid of 30 Juz (links exactly as given) -->
+        <div class="juz-grid">
+            <!-- using inline style to set animation delay index -->
+            <div class="juz-card" style="--i:1;"><a href="http://j.mp/2b8SiNO" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 1</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:2;"><a href="http://j.mp/2b8RJmQ" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 2</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:3;"><a href="http://j.mp/2bFSrtF" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 3</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:4;"><a href="http://j.mp/2b8SXi3" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 4</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:5;"><a href="http://j.mp/2b8RZm3" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 5</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:6;"><a href="http://j.mp/28MBohs" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 6</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:7;"><a href="http://j.mp/2bFRIZC" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 7</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:8;"><a href="http://j.mp/2bufF7o" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 8</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:9;"><a href="http://j.mp/2byr1bu" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 9</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:10;"><a href="http://j.mp/2bHfyUH" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 10</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:11;"><a href="http://j.mp/2bHf80y" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 11</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:12;"><a href="http://j.mp/2bWnTby" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 12</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:13;"><a href="http://j.mp/2bFTiKQ" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 13</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:14;"><a href="http://j.mp/2b8SUTA" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 14</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:15;"><a href="http://j.mp/2bFRQIM" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 15</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:16;"><a href="http://j.mp/2b8SegG" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 16</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:17;"><a href="http://j.mp/2brHsFz" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 17</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:18;"><a href="http://j.mp/2b8SCfc" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 18</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:19;"><a href="http://j.mp/2bFSq95" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 19</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:20;"><a href="http://j.mp/2brI1zc" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 20</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:21;"><a href="http://j.mp/2b8VcBO" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 21</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:22;"><a href="http://j.mp/2bFRxNP" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 22</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:23;"><a href="http://j.mp/2brItxm" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 23</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:24;"><a href="http://j.mp/2brHKw5" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 24</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:25;"><a href="http://j.mp/2brImlf" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 25</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:26;"><a href="http://j.mp/2bFRHF2" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 26</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:27;"><a href="http://j.mp/2bFRXno" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 27</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:28;"><a href="http://j.mp/2brI3ai" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 28</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:29;"><a href="http://j.mp/2bFRyBF" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 29</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+            <div class="juz-card" style="--i:30;"><a href="http://j.mp/2bFREcc" target="_blank" rel="noopener noreferrer"><div class="juz-icon"><i class="fas fa-book-open"></i></div><span class="juz-label">Sipara' 30</span><span class="link-hint"><i class="fas fa-play-circle"></i> listen</span></a></div>
+        </div>
+
+        <!-- save & share message exactly as requested -->
+        <div class="share-save">
+            <div class="save-text">
+                <!-- <i class="fas fa-share-alt"></i> -->
+                <span>📲 Please save and share as many as possible , may it benefit to all Muslims.</span>
+            </div>
+            <div class="share-icons">
+                <a href="https://wa.me/?text=JUST touch the links for revision of Al-Qur'an 30 juzu ( Sipara )'.. No need to download, just click the  links and listen to the Qur'an.   Make it BookMark :  https://30sipara.netlify.app/" target="_blank" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <!-- Instagram (Note: Instagram does not support direct web share like WhatsApp) -->
+<a href="https://www.instagram.com/" target="_blank" title="Share on Instagram">
+  <i class="fab fa-instagram"></i>
+</a>
+
+<!-- Gmail -->
+<a href="https://mail.google.com/mail/?view=cm&fs=1&su=Revision%20of%20Al-Qur'an%2030%20Juzu&body=JUST%20touch%20the%20links%20for%20revision%20of%20Al-Qur'an%2030%20juzu%20(Sipara)..%20No%20need%20to%20download,%20just%20click%20the%20links%20and%20listen%20to%20the%20Qur'an.%20Make%20it%20BookMark:%20https://30sipara.netlify.app/" target="_blank" title="Share on Gmail">
+  <i class="fab fa-google"></i>
+</a>
+
+<!-- Snapchat (No direct web share available, opens Snapchat site) -->
+<a href="https://www.snapchat.com/" target="_blank" title="Share on Snapchat">
+  <i class="fab fa-snapchat"></i>
+</a>
+
+            </div>
+        </div>
+
+        <div class="dua">
+              بسم الله •  revision of Al-Qur'an 30 Siparas • just click & listen 
+              
+            </div>
+            
+            <!-- tiny hint that links open in new tab (all target="_blank") -->
+            <div class="external-hint" style="text-align: center; margin-top: 1.5rem; opacity: 0.7;">
+                <!-- <i class="fas fa-external-link-alt"></i> links open in new tab · no download needed <br> -->
+                <span>   Made with  <span div class="love" style="height: 10%;">❤︎</span> by Amaan Pathan</span>
+            </div>
+        </div>
+
+    <!-- small footer animation for barakah -->
+    <div style="margin-top: 2rem; color: #b59764; text-align: center; font-size: 1rem; backdrop-filter: blur(2px);">
+        <span>✨</span>  وَرَتِّلِ ٱلْقُرْءَانَ تَرْتِيلًا  <span>✨</span>
+    </div>
+
+    <!-- (all j.mp links are preserved exactly) -->
+</body>
+</html>

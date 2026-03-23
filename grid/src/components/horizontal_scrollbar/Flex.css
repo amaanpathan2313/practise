@@ -1,0 +1,28 @@
+body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.fBox{
+   width: 99vw;
+   height: 50vh;
+   gap: 15px;
+   /* border: 2px solid rgb(17, 16, 16); */
+   padding: 10px;
+   /* border-radius: 10px; */
+   display: flex;
+   overflow-y: hidden;
+   overflow-x: hidden;
+   
+}
+
+.fBox>div{
+    min-width: 40vh;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.fBox>div:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    filter: blur(1px);
+}
