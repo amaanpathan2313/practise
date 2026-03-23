@@ -1,0 +1,48 @@
+h1 {
+  text-align: center;
+}
+
+.dashboard-box {
+  /* border: 2px solid black; */
+  display: flex;
+
+  /* background-color: beige; */
+}
+
+.left-panel {
+  /* background-color: rgb(205, 191, 191); */
+  width: 50vw;
+  /* height: 100%; */
+  border: 2px solid black;
+}
+
+.left-panel p {
+  margin: 3vh;
+  padding: 10px;
+  border: 1px solid pink;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.post-box {
+    /* background-color: lightblue; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.post-box div:hover{
+   border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.main-panel div {
+  border: 1px solid black;
+  padding: 1vh;
+  margin: 1vh;
+}
+
+.main-panel {
+  /* width: 80vw; */
+}
