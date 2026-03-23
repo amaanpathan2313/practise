@@ -22,7 +22,7 @@ const postSlice = createSlice({
 
         builders
         .addCase(fetchPost.pending, (state) => {
-            console.log("post is loading")
+            // console.log("post is loading")
             state.postIsLoading = true;
         })
         .addCase(fetchPost.fulfilled, (state, action) => {
@@ -31,7 +31,7 @@ const postSlice = createSlice({
             state.postData = action.payload;
         })
         .addCase(fetchPost.rejected, (state) => {
-            console.log("post is error")
+            // console.log("post is error")
             state.postIsLoading = false;
             state.postIsError = true;
         })

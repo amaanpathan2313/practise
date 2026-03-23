@@ -17,18 +17,18 @@ const userSlice = createSlice({
   extraReducers: (builders) => {
     builders
     .addCase(fetchUsers.pending, (state) => {
-        console.log("I am in Loading")
+        // console.log("I am in Loading")
         state.isLoading = true;
     })
     .addCase(fetchUsers.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload;
-        console.log("I am in success")
+        // console.log("I am in success")
     })
     .addCase(fetchUsers.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
-        console.log("I am in error")
+        // console.log("I am in error")
       });
   },
 }); // userSlice
