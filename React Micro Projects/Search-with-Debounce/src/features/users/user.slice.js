@@ -1,16 +1,11 @@
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { createAsyncThunk, createSlice} from '@reduxjs/toolkit'
-
-export const fetchUsers = createAsyncThunk('users/fetchUsers', async() => {
-
-    let response = await fetch('https://jsonplaceholder.typicode.com/users');
-    return response.json();
-
-
-}); // fetchUsers
+export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
+  let response = await fetch("https://jsonplaceholder.typicode.com/users");
+  return response.json();
+});
 
 const userSlice = createSlice({
-
   name: "users",
 
   initialState: {
@@ -19,27 +14,23 @@ const userSlice = createSlice({
     data: [],
   },
 
-
-  extraReducers: (builders) => { //   createAsyncThunk It automatically create reducers
-
-    builders.
-    addCase(fetchUsers.pending, (state) => {
+  extraReducers: (builders) => {
+    builders
+    .addCase(fetchUsers.pending, (state) => {
+        console.log("I am in Loading")
         state.isLoading = true;
-        console.log("Now I am in Pending State")
     })
     .addCase(fetchUsers.fulfilled, (state, action) => {
-        state.isLoading = false,
-        console.log("Now I am in filefield State")
-        state.data = action.payload
+        state.isLoading = false;
+        state.data = action.payload;
+        console.log("I am in success")
     })
     .addCase(fetchUsers.rejected, (state) => {
-        state.isLoading = false,
-        console.log("Now I am in reject State")
+        state.isLoading = false;
         state.isError = true;
-    })
-
-  }, // extraReducers
-
+        console.log("I am in error")
+      });
+  },
 }); // userSlice
 
 export default userSlice.reducer;

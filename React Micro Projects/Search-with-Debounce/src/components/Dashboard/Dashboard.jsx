@@ -1,35 +1,27 @@
 import { useEffect, useState } from "react";
 import { fetchUsers } from "../../features/users/user.slice";
-
 import { useDispatch, useSelector } from "react-redux";
 
 const Dashboard = () => {
+  const [count, setCount] = useState(0);
 
-const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
+  const { isLoading, isError, data } = useSelector((state) => state.users);
 
-const { isError, isLoading, data } = useSelector((state) => state.users);
-const dispatch = useDispatch();
+  useEffect(() =>{ dispatch(fetchUsers())}, []);
 
 
   useEffect(() => {
- dispatch(fetchUsers())
-  },[]);
+    if(data){
+        console.log(data)
+    }
+  },[data])
 
-  
-    useEffect(() => {
-            if(data){
-                console.log(data)
-            }
-    }, [data])
-    
-    
-    return (
-        <>
-        { isLoading && <h1>Loading....</h1> }
-        <h1>DashBoard</h1>
-        </>
-    )
-
-};
+  return (
+    <>
+      <h1>Dashboard</h1>
+    </>
+  );
+}; // Dashboard
 
 export default Dashboard;
