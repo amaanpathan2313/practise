@@ -1,8 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const useLocalStorage = () => {
 
-    const [userObj, setUserObj] = useState({})
+    const [userObj, setUserObj] = useState({});
+
+    useEffect(() => {
+
+        if(userObj){
+            console.log(userObj)
+        }
+
+    },[userObj])
+
+
+
+    return { setUserObj }
 
 
 

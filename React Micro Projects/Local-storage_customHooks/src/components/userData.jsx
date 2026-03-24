@@ -1,18 +1,17 @@
- 
 
-    const UserData = () => {
+
+const UserData = () => {
 
   
+  
+ 
+ 
 
+  return <>
 
-        return (
-            <>
+ 
+  
+  </>;
+}; // userData
 
-        
-            </>
-        )
-
-    }; // userData
-
-
-    export default UserData;
+export default UserData;
